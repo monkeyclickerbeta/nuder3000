@@ -10,7 +10,7 @@ NudeGenerator
     - Enjoy <br>
 
 <sub>
-<img src= "https://cdn.discordapp.com/attachments/948281991973978112/959121591273414696/unknown.png" height = 300 >
 </sub>
 
 </h3>
+
