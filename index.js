@@ -1,13 +1,13 @@
 const { question } = require("readline-sync");
 const axios = require("axios");
 const fetch = require("sync-fetch");
-const Color = require("sync-color");
-Color.init();
+const chalk = require("chalk");
+const gradient = require("gradient-string");
 const fs = require("fs");
 
 function Generador(Link, What) {
     resetConsole();
-    var toGen = question(Color.morning(`\nHow Many ${What} You Want To Generate ?: `));
+    var toGen = question(gradient.morning(`\nHow Many ${What} You Want To Generate ?: `));
     if (!fs.readdirSync(__dirname).includes(What)) fs.mkdirSync(`./${What}`);
     var i = 1;
     
@@ -53,7 +53,7 @@ function Generador(Link, What) {
 
 function resetConsole() {
     console.clear();
-    console.log(Color.morning(`
+    console.log(gradient.morning(`
      _   _           _         _____            
     | \\ | |         | |       / ____|           
     |  \\| |_   _  __| | ___  | |  __  ___ _ __  
@@ -64,12 +64,12 @@ function resetConsole() {
 
 function main() {
     resetConsole();
-    console.log(Color.morning(`  _______________________________________________
+    console.log(gradient.morning(`  _______________________________________________
                 What Do You Want To Do ?`));
-    console.log(Color.morning(`       [1]: Generate Pussy | [2]: Generate Ass
+    console.log(gradient.morning(`       [1]: Generate Pussy | [2]: Generate Ass
        [3]: Generate 4K    | [4]: Generate Tits
        [5]: Generate Thigh | [6]: Generate Hentai\n`));
-    var choosed = question(Color.InitGradient(["#00aaaa", "#FF1493"])("Select A Number: "));
+    var choosed = question(gradient.pastel(`Select A Number: `));
     
     switch (choosed) {
         case "1":
@@ -91,7 +91,7 @@ function main() {
             Generador("https://nekobot.xyz/api/image?type=hentai", "Hentai");
             break;
         default:
-            console.log(Color.InitGradient(["#8B0000", "#FF1493"])("Please Choose A Valid Number."));
+            console.log(gradient.vice("Please Choose A Valid Number."));
             break;
     }
 }
