@@ -1,11 +1,11 @@
 @echo off
-title Nude Generator
+title Nuder3000
 color 0A
 
 :menu
 cls
 echo ========================================
-echo       NUDE GENERATOR - MENU
+echo         NUDER3000 - MENU
 echo ========================================
 echo [1] Install Modules
 echo [2] Launch The Gen
@@ -31,7 +31,7 @@ goto menu
 
 :launch
 echo.
-echo Made By mathpunch Official ツ
+echo Launching generator...
 echo.
 node index.js
 pause
@@ -39,4 +39,3 @@ goto menu
 
 :exit
 exit
-
