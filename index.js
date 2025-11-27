@@ -14,13 +14,14 @@ function Generador(Link, What) {
     const interval = setInterval(() => {
         if (toGen < i) {
             clearInterval(interval);
-            console.log(`\x1b[32m\n${i - 1} ${What} Has Been Successfully Generated !\x1b[0m`);
+            console.log(chalk.green(`\n${i - 1} ${What} Has Been Successfully Generated !`));
             process.exit();
             return;
         }
         
-        fetch(Link).json().then(data => {
-            var newLink = data.message;
+        try {
+            const data = fetch(Link).json();
+            const newLink = data.message;
             
             axios.get(newLink, { responseType: 'stream' })
                 .then(response => {
@@ -31,23 +32,23 @@ function Generador(Link, What) {
                     response.data.pipe(writer);
                     
                     writer.on('finish', () => {
-                        console.log(`Downloaded ${What}-${i}.${extension}`);
+                        console.log(chalk.cyan(`Downloaded ${What}-${i}.${extension}`));
                     });
                     
                     i++;
                 })
                 .catch(err => {
                     if (err.toString().includes("Rate") || err.toString().includes("429")) {
-                        console.log("\x1b[33mRate Limited.\x1b[0m");
+                        console.log(chalk.yellow("Rate Limited."));
                         clearInterval(interval);
                         process.exit();
                     } else {
-                        console.error(`Error downloading: ${err.message}`);
+                        console.error(chalk.red(`Error downloading: ${err.message}`));
                     }
                 });
-        }).catch(err => {
-            console.error(`Error fetching link: ${err.message}`);
-        });
+        } catch (err) {
+            console.error(chalk.red(`Error fetching link: ${err.message}`));
+        }
     }, 1500);
 }
 
