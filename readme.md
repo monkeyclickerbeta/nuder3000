@@ -1,7 +1,7 @@
 <h1 align="center">
 <sub>
 </sub>
-NudeGenerator
+Nuder3000
 </h1>
 
 <h3 align= "center">
@@ -13,4 +13,5 @@ NudeGenerator
 </sub>
 
 </h3>
+
 
