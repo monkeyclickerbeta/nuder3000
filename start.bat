@@ -31,7 +31,7 @@ goto menu
 
 :launch
 echo.
-echo Launching generator...
+echo Made By mathpunch Official ツ
 echo.
 node index.js
 pause
@@ -39,3 +39,4 @@ goto menu
 
 :exit
 exit
+
